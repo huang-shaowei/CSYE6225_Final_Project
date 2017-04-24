@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+  <title>Budget Tracker</title>
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>Welcome to Paige's Budget Tracker!</h1>
+    </div>
+    <div class="page-header">
+        <h2>New Transaction:</h2>
+      <form id="newTransaction">
+        <div class="row">
+            <label id="dropDown">Select deposit or withdrawl:</label>
+            <select id="transactionType" required>
+              <option value="deposit">Deposit</option>
+              <option value="withdrawal" selected>Withdrawal</option>
+            </select>
+            <div class="input-group">
+              <span class="input-group-addon">Description: </span>
+              <input id="description" type="text" class="form-control" required>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input id="amount" type="number" size="37" min="0.00" step="0.01" required>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Date of transaction:</span>
+              <input id="date" type="date" size="35" required>
+            </div>
+            <button class="btn btn-success">Add transaction</button>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <h3>Current Account Balance: $500.00</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-9" id="display">
+        <label>Display options: </label>
+        <select id="typeOfTransaction">
+          <option value="all" selected>all transactions</option>
+          <option value="deposits">only deposits</option>
+          <option value="withdrawals">only withdrawals</option>
+        </select>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-xs-2">Date</th>
+          <th class="col-xs-3">Description</th>
+          <th class="col-xs-2">Amount</th>
+          <th class="col-xs-2">Delete Transaction</th>
+          <th class="col-xs-3">Running Balance (when posted)</th>
+        </tr>
+      </thead>
+      <tbody id="transactions">
+        <tr id="template">
+          <td class="date"></td>
+          <td class="description"></td>
+          <td class="amount"></td>
+          <td class="deleteTransaction">
+            <button type="button" class="btn-sm trashButton">
+              <span class="glyphicon glyphicon-trash"</span>
+            </button>
+          </td>
+          <td class="runningBalance"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-xs-12" id="footer"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
